@@ -1,0 +1,10 @@
+{
+    "autoload": {
+        "psr-4": {"TrelloParser\\": "src/"}
+    },
+
+    "require": {
+        "cdaguerre/php-trello-api": "@dev",
+        "vlucas/phpdotenv": "^3.6"
+    }
+}
