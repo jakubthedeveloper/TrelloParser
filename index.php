@@ -27,7 +27,7 @@ $data = $parser->getCards($boardId, $cardIds);
 <head>
     <meta charset="utf-8">
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script src="jquery.tablesort.min.js"></script>
 
     <style type="text/css">
