@@ -26,8 +26,15 @@ $data = $parser->getCards($boardId, $cardIds);
 <html lang="en-US">
 <head>
     <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="jquery.tablesort.min.js"></script>
 
     <style type="text/css">
+        * {
+            font-family: 'Lato', sans-serif;
+        }
+
         th, td {
             text-align: left;
             padding: 4px;
@@ -39,22 +46,32 @@ $data = $parser->getCards($boardId, $cardIds);
 
 <body>
     <table cellspacing="0" cellpadding="0">
-        <tr>
-            <th>Task number</th>
-            <th>Task</th>
-            <th>Trello column</th>
-        </tr>
+        <thead>
+            <tr>
+                <th>Task number</th>
+                <th>Task</th>
+                <th>Trello column</th>
+            </tr>
+        </thead>
 
-        <?php foreach ($data as $row): ?>
-        <tr>
-            <td><?= $row['idShort']; ?></td>
-            <td>
-                <a href="<?= $row['url']; ?>" target="_blank"><?= $row['name']; ?></a>
-            </td>
-            <td>
-                <?= $row['listName']; ?>
-            </td>
-        </tr>
-        <?php endforeach; ?>
+        <tbody>
+            <?php foreach ($data as $row): ?>
+            <tr>
+                <td><?= $row['idShort']; ?></td>
+                <td>
+                    <a href="<?= $row['url']; ?>" target="_blank"><?= $row['name']; ?></a>
+                </td>
+                <td>
+                    <?= $row['listName']; ?>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
     </table>
+
+    <script type="text/javascript">
+        $(function() {
+            $('table').tablesort();
+        });
+    </script>
 </body>
