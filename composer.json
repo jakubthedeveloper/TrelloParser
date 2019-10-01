@@ -5,6 +5,7 @@
 
     "require": {
         "cdaguerre/php-trello-api": "@dev",
-        "vlucas/phpdotenv": "^3.6"
+        "vlucas/phpdotenv": "^3.6",
+        "nesbot/carbon": "^2.24"
     }
 }

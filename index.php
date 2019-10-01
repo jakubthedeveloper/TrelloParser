@@ -7,6 +7,7 @@ if (file_exists(DIR_VENDOR . 'autoload.php')) {
 
 use TrelloParser\TrelloParser;
 use Dotenv\Dotenv;
+use Carbon\Carbon;
 
 $dotenv = Dotenv::create(__DIR__);
 $dotenv->load();
@@ -51,6 +52,7 @@ $data = $parser->getCards($boardId, $cardIds);
                 <th>Task number</th>
                 <th>Task</th>
                 <th>Trello column</th>
+                <th>Last activity</th>
             </tr>
         </thead>
 
@@ -63,6 +65,9 @@ $data = $parser->getCards($boardId, $cardIds);
                 </td>
                 <td>
                     <?= $row['listName']; ?>
+                </td>
+                <td>
+                    <?= (new Carbon($row['dateLastActivity']))->longAbsoluteDiffForHumans(Carbon::now()); ?> ago
                 </td>
             </tr>
             <?php endforeach; ?>
